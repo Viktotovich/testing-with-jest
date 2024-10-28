@@ -42,6 +42,11 @@ const functionController = {
       return safeNumber;
     },
   },
+  caesarCipher: function (string, shiftFactor) {
+    /* 
+    Reqs: shift factor, lettercases, punctuations, spaces, etc.
+    */
+  },
 };
 
 functionController.reverseString("Vlad");

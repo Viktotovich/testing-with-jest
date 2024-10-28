@@ -46,3 +46,36 @@ test("Calculator Multiplies", () => {
 test("Calculator deals with JS quirks", () => {
   expect(functionController.calculator.add("0.1", "0.2")).toBe(0.3);
 });
+
+//Ceasar Cipher
+test("Caesar cipher performs basic cipher", () => {
+  expect(functionController.caesarCipher("xyz", 3)).toBe("abc");
+});
+
+test("Caesar cipher preserves cases", () => {
+  expect(functionController.caesarCipher("HeLLo", 3)).toBe("KhOOr");
+});
+
+test("Caesar cipher preserves punctuation", () => {
+  expect(functionController.caesarCipher("Hello, World!", 3)).toBe(
+    "Khoor, Zruog!"
+  );
+});
+
+test("Caesar cipher is not a fluke, and works with different shift factors", () => {
+  expect(
+    functionController.caesarCipher(
+      "Oman is the summer is actually a great place to be!",
+      -10
+    )
+  ).toBe("Ecqd yi jxu ikccuh yi qsjkqbbo q whuqj fbqsu je ru!");
+});
+
+test("Caesar cipher is not a fluke, and works with different shift factors pt II", () => {
+  expect(
+    functionController.caesarCipher(
+      "Oman is the summer is actually a great place to be!",
+      8
+    )
+  ).toBe("Wuiv qa bpm acuumz qa ikbcittg i ozmib xtikm bw jm!");
+});
