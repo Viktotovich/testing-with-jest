@@ -43,11 +43,51 @@ const functionController = {
     },
   },
   caesarCipher: function (string, shiftFactor) {
-    /* 
-    Reqs: shift factor, lettercases, punctuations, spaces, etc.
-    */
+    if (shiftFactor < 0) {
+      /*if the shift factor is negative, we go back the length of the alphabet. In this case, -3 and 23 will be the same */
+      shiftFactor = shiftFactor + 26;
+    }
+
+    if (shiftFactor < -26 || shiftFactor > 26) {
+      shiftFactor = shiftFactor % 26;
+    }
+
+    let lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+    let upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+    function getCipheredLetter(letter) {
+      if (letter === letter.toUpperCase()) {
+        return processLetter(letter, upperCaseAlphabet);
+      } else {
+        return processLetter(letter, lowerCaseAlphabet);
+      }
+    }
+
+    function processLetter(letter, arr) {
+      let index = arr.indexOf(letter);
+      if (index === -1) {
+        return letter;
+      } else {
+        index += shiftFactor;
+        if (index > 25) {
+          index -= 26;
+          console.log(index);
+          return arr[index];
+        } else {
+          console.log(index);
+          return arr[index];
+        }
+      }
+    }
+
+    let cypheredStringArr = [];
+    for (let i = 0; i < string.length; i++) {
+      cypheredStringArr.push(getCipheredLetter(string[i]));
+    }
+
+    return cypheredStringArr.join("");
   },
 };
 
-functionController.reverseString("Vlad");
+functionController.caesarCipher("xyz", 3);
 export { functionController };

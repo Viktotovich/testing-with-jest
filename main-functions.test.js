@@ -65,17 +65,17 @@ test("Caesar cipher preserves punctuation", () => {
 test("Caesar cipher is not a fluke, and works with different shift factors", () => {
   expect(
     functionController.caesarCipher(
-      "Oman is the summer is actually a great place to be!",
+      "Oman in the summer is actually a great place to be!",
       -10
     )
-  ).toBe("Ecqd yi jxu ikccuh yi qsjkqbbo q whuqj fbqsu je ru!");
+  ).toBe("Ecqd yd jxu ikccuh yi qsjkqbbo q whuqj fbqsu je ru!");
 });
 
 test("Caesar cipher is not a fluke, and works with different shift factors pt II", () => {
   expect(
     functionController.caesarCipher(
-      "Oman is the summer is actually a great place to be!",
+      "Oman in the summer is actually a great place to be!",
       8
     )
-  ).toBe("Wuiv qa bpm acuumz qa ikbcittg i ozmib xtikm bw jm!");
+  ).toBe("Wuiv qv bpm acuumz qa ikbcittg i ozmib xtikm bw jm!");
 });
