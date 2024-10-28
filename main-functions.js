@@ -71,10 +71,8 @@ const functionController = {
         index += shiftFactor;
         if (index > 25) {
           index -= 26;
-          console.log(index);
           return arr[index];
         } else {
-          console.log(index);
           return arr[index];
         }
       }
@@ -87,7 +85,46 @@ const functionController = {
 
     return cypheredStringArr.join("");
   },
+  analyseArray: function (arr) {
+    class ArrayDetails {
+      constructor(arr) {
+        this.average = this.getAverage(arr);
+        this.min = this.getMin(arr);
+        this.max = this.getMax(arr);
+        this.length = this.getLength(arr);
+      }
+
+      getAverage(arr) {
+        let total = 0;
+        arr.forEach((element) => {
+          return (total = total + element);
+        });
+
+        console.log(total / arr.length);
+        return total / arr.length;
+      }
+
+      getMin(arr) {
+        let sortedArr = arr.sort((a, b) => a - b);
+        return sortedArr[0];
+      }
+
+      getMax(arr) {
+        let sortedArr = arr.sort((a, b) => a - b);
+        return sortedArr[arr.length - 1];
+      }
+
+      getLength(arr) {
+        return arr.length;
+      }
+    }
+
+    return new ArrayDetails(arr);
+  },
 };
 
-functionController.caesarCipher("xyz", 3);
+const testArr = [1, 8, 3, 4, 2, 6];
+const testObj = functionController.analyseArray(testArr);
+
+console.log(testObj);
 export { functionController };

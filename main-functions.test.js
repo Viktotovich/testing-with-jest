@@ -79,3 +79,21 @@ test("Caesar cipher is not a fluke, and works with different shift factors pt II
     )
   ).toBe("Wuiv qv bpm acuumz qa ikbcittg i ozmib xtikm bw jm!");
 });
+
+//Array Analyzer
+const testArr = [1, 8, 3, 4, 2, 6];
+const testObj = functionController.analyseArray(testArr);
+
+test("Returns an Object with correct keys", () => {
+  expect(functionController.analyseArray(testArr)).toHaveProperty("average");
+  expect(functionController.analyseArray(testArr)).toHaveProperty("min");
+  expect(functionController.analyseArray(testArr)).toHaveProperty("max");
+  expect(functionController.analyseArray(testArr)).toHaveProperty("length");
+});
+
+test("Keys contain correct values", () => {
+  expect(testObj.average).toBe(4);
+  expect(testObj.min).toBe(1);
+  expect(testObj.max).toBe(8);
+  expect(testObj.length).toBe(6);
+});
