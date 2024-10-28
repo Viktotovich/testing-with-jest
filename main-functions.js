@@ -14,6 +14,34 @@ const functionController = {
 
     return reverseStringArr.join("");
   },
+  calculator: {
+    add: function (numA, numB) {
+      numA = this.coerceNumberType(numA);
+      numB = this.coerceNumberType(numB);
+
+      if (numA < 1 || numB < 1) {
+        return this.safeAdd(numA, numB);
+      } else {
+        return numA + numB;
+      }
+    },
+    safeAdd: function (numA, numB) {
+      return this.coerceNumberType(parseFloat(numA + numB).toPrecision(1));
+    },
+    subtract: function (numA, numB) {
+      return numA - numB;
+    },
+    divide: function (numA, numB) {
+      return numA / numB;
+    },
+    multiply: function (numA, numB) {
+      return numA * numB;
+    },
+    coerceNumberType: function (num) {
+      let safeNumber = Number(num);
+      return safeNumber;
+    },
+  },
 };
 
 functionController.reverseString("Vlad");
